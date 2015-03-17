@@ -1,0 +1,6 @@
+# Nmap 6.47 scan initiated Mon Mar 16 18:42:01 2015 as: nmap -Pn -oA pruebas 192.168.1.7
+Nmap scan report for 192.168.1.7
+Host is up.
+All 1000 scanned ports on 192.168.1.7 are filtered
+
+# Nmap done at Mon Mar 16 18:42:15 2015 -- 1 IP address (1 host up) scanned in 14.30 seconds
