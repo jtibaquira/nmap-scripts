@@ -48,14 +48,17 @@ def parseNmapScan(scan):
           nmapHosts.append(nmapHost)
 
           for nmapHost in nmapHosts:
-            print nmapHost.host
+            print "[+] Host: "+nmapHost.host
             for openPorts in nmapHost.openPorts:
-              print openPorts.port, openPorts.state,  openPorts.version, openPorts.reason, openPorts.scriptOutput
+              print "\t[++]"+str(openPorts.port), openPorts.state,  openPorts.version
+              if not openPorts.scriptOutput == None:
+                for k,v in openPorts.scriptOutput.iteritems():
+                  print "\t\t[+++]"+k+"==> "+v
     else:
       print "[-] Resultados no encontrados en %s" %(protocol)
       return nmapHosts
 
 if __name__ == '__main__':
   nm = nmap.PortScanner()
-  nm.scan("192.168.1.1/24","22-8080")
+  nm.scan("192.168.1.7,19",arguments="-sC -sS -sV -p-")
   structureNmap = parseNmapScan(nm)
